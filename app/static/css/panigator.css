@@ -1,0 +1,43 @@
+/* Settings button */
+.btn__page-disabled{
+    color:white;
+    text-decoration: none;
+}
+.btn__page-disabled-li{
+    font-size: 16px;
+    line-height: 6px;
+    padding:  11px 23px;
+    border: 1px solid #BCD0E5;
+    border-radius: 4px;
+    text-decoration: none;
+    border-color: transparent;
+    background-color: #ff9900;
+}
+
+.number__page{
+    font-size: 16px;
+    line-height: 6px;
+    padding:  11px 23px;
+    border: 1px solid #BCD0E5;
+    border-radius: 4px;
+    text-decoration: none;
+    border-color: transparent;
+    background-color: #173A56;
+}
+.number__page-btn{   
+    color: #ff9900;
+    text-decoration: none;
+}
+.page-item{
+    list-style-type: none;
+}
+/* End settings button */
+
+/* Settings conteiner */
+.conteiner_panigator{
+    display: flex;
+    position: relative;
+    top: 535px;
+    width: 300px;
+    justify-content: space-between;
+}

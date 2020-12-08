@@ -1,0 +1,87 @@
+{% load static %}
+<div class="features_items">
+  <!--features_items-->
+  <h2 class="title text-center">Features Items</h2>
+
+  {% if products %} {% for product in products %}
+  <div class="col-sm-4">
+    <div class="product-image-wrapper">
+      <div class="single-products">
+        <div class="productinfo text-center">
+          <img src="{{ product.photo_main.url }}" alt="{{product.tittle}}" />
+          <h2>${{ product.price }}</h2>
+          <p>{{ product.tittle }}</p>
+          <a href="#" class="btn btn-default add-to-cart"
+            ><i class="fa fa-shopping-cart"></i>Add to cart</a
+          >
+        </div>
+        <div class="product-overlay">
+          <div class="overlay-content">
+            <h2>${{ product.sale }}</h2>
+            <p>{{ product.tittle }}</p>
+            <a href="#" class="btn btn-default add-to-cart"
+              ><i class="fa fa-shopping-cart"></i>Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="choose">
+      <ul class="nav nav-pills nav-justified">
+        <li>
+          <a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-plus-square"></i>Add to compare</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <div class="col-sm-4">
+    <h3>No products found</h3>
+  </div>
+  {% endif %}
+</li>
+
+{% comment %} Panigator {% endcomment %}
+<div class="conteiner_panigator">
+
+<li class="page-item disabled btn__page-disabled-li">
+  <a class="page-link btn__page-disabled">back</a>
+</li>
+
+{% for i in products.paginator.page_range %}
+  {% if listings.number == i %}
+  
+    <li class="page-item active" >
+      <a  class="page-link" style = "color:black; font-size: 20px;">{{ i }}</a>
+    </li>
+
+    {% comment %} Номера сторінок {% endcomment %}
+
+  {% else %}
+   <li class="page-item number__page" >
+      <a href="?page={{i}}" class="page-link number__page-btn">{{ i }}</a>
+    </li>
+  {% endif %}
+
+{% comment %} Коли есть хтось next page {% endcomment %}
+
+{% endfor %}
+{% if listings.has_next %}
+<li class="page-item">
+  <a href="?page={{ listings_next_page_number }}" class="page-link next_page btn__page-disabled">next</a>
+</li>
+{% comment %} Коли не робить {% endcomment %}
+
+{% else %}
+<li class="page-item disabled btn__page-disabled-li">
+  <a class="page-link btn__page-disabled">next</a>
+</li>
+{% endif %}
+</div>
+</ul>
+</div>
+</div>
+<!--features_items-->
